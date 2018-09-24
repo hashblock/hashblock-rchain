@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rchain-svc
+  labels:
+    app: rchain-svc
+spec:
+  loadBalancerIP: 104.42.53.146
+  type: LoadBalancer
+  ports:
+    - port: 40400
+      protocol: TCP
+      name: www
+  selector:
+    app: rchain

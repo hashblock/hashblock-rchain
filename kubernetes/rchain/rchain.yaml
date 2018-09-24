@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rchain
+spec:
+  selector:
+    app: rchain
+  replicas: 1
+  template:
+    metadata:
+      name: rchain
+      labels:
+        app: rchain
+    spec:
+      containers:
+      - name: rchain
+        image: hashblock/rchain-bootstrap-node:latest
+        ports:
+        - containerPort: 40400

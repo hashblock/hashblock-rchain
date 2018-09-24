@@ -9,8 +9,8 @@ There dockerfiles simplify deployment to Kubernetes.
 
 Build from repo root directory.
 
-- `docker build -f docker/testnet-node/Dockerfile -t hashblock/rchain-testnet-node:latest .`
-- `docker build -f docker/bootstrap-node/Dockerfile -t hashblock/rchain-bootstrap-node:latest .`
+- `docker build -f Dockerfile -t hashblock/rchain-testnet-node:latest .`
+- `docker build -f Dockerfile -t hashblock/rchain-bootstrap-node:latest .`
 
 ## Environment Variables
 
@@ -30,7 +30,7 @@ Replace the -e items with the appropriate environment variables listed above.
 
 `sudo docker run -it -p 40400:40400 -e private_key=REPLACE -e public_key=REPLACE -e bootstrap_address=REPLACE blockgencorp/rnode:latest`
 
-## Kubernetes Tips & Tricks
+## Kubernetes Tips & Trick
 
 Your pod security policy should allow Hosts Port 40400 at a minimum.
 

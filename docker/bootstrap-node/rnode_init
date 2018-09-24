@@ -1,0 +1,29 @@
+#!/bin/bash
+
+ set -ex
+
+ if [ ! -e "/root/.rnode/rnode.toml" ]; then
+  mkdir -p /root/.rnode
+  cat <<EOF > /root/.rnode/rnode.toml
+  [server]
+  port = ${port}
+  http-port = ${http_port}
+  metrics-port = ${metrics_port}
+  no-upnp = false
+  default-timeout = 6000
+  standalone = ${standalone}
+  bootstrap = "${bootstrap_address}"
+  data-dir = "/root/.rnode/"
+
+  [grpc-server]
+  host = "${grpc_host}"
+  port = ${grpc_port}
+
+  [validators]
+  public-key = "${public_key}"
+  private-key = "${private_key}"
+EOF
+  fi
+
+cat /root/.rnode/rnode.toml
+exec rnode run

@@ -9,6 +9,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 40400
+      targetPort: 40400
       protocol: TCP
       name: www
   selector:
